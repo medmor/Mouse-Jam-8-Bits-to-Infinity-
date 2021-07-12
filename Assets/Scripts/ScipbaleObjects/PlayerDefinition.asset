@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b126559cbf756b4ca74c40e087b4ca5, type: 3}
+  m_Name: PlayerDefinition
+  m_EditorClassIdentifier: 
+  Shield: {fileID: 11400000, guid: d2e296ee2508eb044b2b97be890ffa05, type: 2}
+  Magnet: {fileID: 11400000, guid: 5cacef55552a62446a80a8e81ad2d157, type: 2}
+  MaxXVelocity: 10
+  MinXVelocity: 6
+  StartMaxVelocity: 10
+  StartMinVelocity: 6
+  XVelocityIncrement: 1
+  JumpVelocity: 7
