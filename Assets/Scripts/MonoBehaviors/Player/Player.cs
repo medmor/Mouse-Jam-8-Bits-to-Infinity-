@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         if (!pController.IsGrounded)
         {
             var hit = Physics2D.Raycast(transform.position, -Vector2.up, 20f, ThornsGround);
-            if (hit && hit.collider.gameObject.CompareTag("Thorns"))
+            if (hit && hit.collider.gameObject.CompareTag("Enemy"))
             {
                 if (currentThornX == float.NegativeInfinity)
                     currentThornX = hit.collider.transform.position.x;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         if (collision.GetType() == typeof(CircleCollider2D))
         {
 
-            if (collision.gameObject.CompareTag("Thorns"))
+            if (collision.gameObject.CompareTag("Enemy"))
             {
                 OnThornHit();
             }
@@ -97,9 +97,9 @@ public class Player : MonoBehaviour
             currentThornX = float.NegativeInfinity;
             cummulativeScore = 0;
             transform.position += Vector3.up * 3;
-            StartCoroutine(ResetCanHit(1));
+            StartCoroutine(ResetCanHit(2));
             animator.SetTrigger("Flicker");
-            SetHealth(health - 50);
+            SetHealth(health - 10);
             SoundManager.Instance.PlayEffects("Hit");
             if (health <= 0)
             {
@@ -150,12 +150,6 @@ public class Player : MonoBehaviour
         UIManager.Instance.EndUI.Show();
         UIManager.Instance.PauseButton.Hide();
         Destroy(gameObject);
-        //gameObject.SetActive(false);
-        //Stope();
-        //GameManager.Instance.UpdateState(GameManager.GameStates.PAUSED);
-        //UIManager.Instance.Inventory.Hide();
-        //UIManager.Instance.TimerUI.Hide();
-        //UIManager.Instance.BonusScore.Hide();
     }
     IEnumerator ResetCanHit(float s)
     {

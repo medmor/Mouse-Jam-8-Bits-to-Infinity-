@@ -61,7 +61,9 @@ public class CollectablesGenerator : MonoBehaviour
         for (int j = -1; j <= 1; j++)
         {
             var coin = GetCoin();
-            coin.transform.position = firstPos + Vector3.up + Vector3.Cross(dir.normalized, Vector3.up) + (Vector3.right + dir.normalized) * j * .5f;
+            coin.transform.position = firstPos + Vector3.up
+                + Vector3.Cross(dir.normalized, Vector3.up)
+                + .5f * j * (Vector3.right + dir.normalized);
         }
     }
     void SpawnRandomEquipement(Vector3 firstPos, Vector3 dir)
@@ -71,7 +73,7 @@ public class CollectablesGenerator : MonoBehaviour
             var equip = Instantiate(EquipementsPrefs[Random.Range(0, EquipementsPrefs.Count)]);
             Vector3 target_position = firstPos + Random.value * dir;
             equip.transform.position = target_position;
-            equip.transform.position += Vector3.up * Random.Range(.5f, 1.5f);
+            equip.transform.position += Vector3.up + Vector3.up * Random.Range(.5f, 1.5f);
         }
     }
 }

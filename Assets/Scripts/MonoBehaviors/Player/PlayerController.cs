@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask Ground;
     Rigidbody2D rg;
 
-    //Animator animator;
+    Animator animator;
 
     public bool IsGrounded { get; private set; }
 
     void Start()
     {
         rg = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,11 +27,25 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, .6f, Ground))
         {
             IsGrounded = true;
-
+            animator.SetBool("Jump", false);
             rg.velocity -= Vector2.right * .01f;
+            if (rg.rotation > 20)
+            {
+                rg.rotation = 20;
+                rg.rotation -= 5;
+            }
+            else if (rg.rotation < -15)
+            {
+                rg.rotation = -15;
+                rg.rotation += 5;
+            }
         }
         else
+        {
             IsGrounded = false;
+            animator.SetBool("Jump", true);
+            rg.rotation = 0;
+        }
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
@@ -47,7 +61,6 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        //animator.SetTrigger("Jump");
         rg.velocity += Vector2.up * PlayerDefinition.JumpVelocity;
         SoundManager.Instance.PlayEffects("Jump");
     }

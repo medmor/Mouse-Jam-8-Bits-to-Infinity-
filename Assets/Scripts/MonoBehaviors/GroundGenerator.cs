@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class FloorGenerator : MonoBehaviour
+public class GroundGenerator : MonoBehaviour
 {
     public SpriteShapeController FloorShapeController;
     private Spline floor;
