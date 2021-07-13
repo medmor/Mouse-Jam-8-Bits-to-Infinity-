@@ -70,5 +70,14 @@ public class PlayerController : MonoBehaviour
         rg.velocity = new Vector2(rg.velocity.x - 10, rg.velocity.y - 20);
         SoundManager.Instance.PlayEffects("Laser");
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.SetActive(false);
+            rg.velocity = Vector2.up * PlayerDefinition.JumpVelocity;
+        }
+
+    }
 }
 

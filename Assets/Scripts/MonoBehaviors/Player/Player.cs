@@ -84,17 +84,20 @@ public class Player : MonoBehaviour
     {
         if (collision.GetType() == typeof(CircleCollider2D))
         {
-
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                OnThornHit();
-            }
-            else if (collision.gameObject.CompareTag("Coin"))
+            if (collision.gameObject.CompareTag("Coin"))
             {
                 OnCoinHit(collision.gameObject);
             }
         }
+        else if (collision.GetType() == typeof(BoxCollider2D))
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                OnThornHit();
+            }
+        }
     }
+
     void OnThornHit()
     {
         if (canHit && !PlayerDefinition.Shield.IsActif)

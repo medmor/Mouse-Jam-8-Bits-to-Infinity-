@@ -15,8 +15,8 @@ MonoBehaviour:
   Shield: {fileID: 11400000, guid: d2e296ee2508eb044b2b97be890ffa05, type: 2}
   Magnet: {fileID: 11400000, guid: 5cacef55552a62446a80a8e81ad2d157, type: 2}
   MaxXVelocity: 10
-  MinXVelocity: 8.6
+  MinXVelocity: 4
   StartMaxVelocity: 10
-  StartMinVelocity: 6
+  StartMinVelocity: 4
   XVelocityIncrement: 1
   JumpVelocity: 7

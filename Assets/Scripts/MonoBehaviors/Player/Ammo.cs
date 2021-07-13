@@ -11,9 +11,9 @@ public class Ammo : MonoBehaviour
     }
     IEnumerator fire(Transform player)
     {
-        while (Vector2.Distance(player.position, transform.position) < 10)
+        while (player && Vector2.Distance(player.position, transform.position) < 10)
         {
-            transform.position += Vector3.right * speed;
+            transform.position += Quaternion.Euler(0, 0, player.eulerAngles.z) * Vector3.right * speed;
             yield return new WaitForFixedUpdate();
         }
         gameObject.SetActive(false);
