@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         {
             var ammo = GetAmmo();
             ammo.transform.position = transform.position;
+            ammo.GetComponent<Ammo>().Fire(transform);
         }
 
     }
@@ -149,7 +150,10 @@ public class Player : MonoBehaviour
         foreach (var a in AmmoPool)
         {
             if (!a.activeSelf)
+            {
+                a.SetActive(true);
                 return a;
+            }
         }
         FillAmmoPool();
         return GetAmmo();

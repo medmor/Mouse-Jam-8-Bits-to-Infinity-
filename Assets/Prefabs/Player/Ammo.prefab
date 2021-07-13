@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4705643232954276392}
   - component: {fileID: 4705643232954276393}
   - component: {fileID: 9075572121205798811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ammo
   m_TagString: Ammo
   m_Icon: {fileID: 0}
@@ -122,4 +122,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d5969299f7b0943a7834aa4252f831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
