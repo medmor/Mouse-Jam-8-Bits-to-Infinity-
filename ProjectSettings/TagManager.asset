@@ -6,8 +6,10 @@ TagManager:
   tags:
   - Ground
   - Equipement
-  - Thorns
   - Coin
+  - Enemy
+  - Thorns
+  - Ammo
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Thorns
-  - 
-  - 
+  - Eenmies
+  - EnemiesGround
+  - Ammo
   - 
   - 
   - 

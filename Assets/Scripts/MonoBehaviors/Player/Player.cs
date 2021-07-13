@@ -1,18 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public PlayerDefinition PlayerDefinition;
+    public LayerMask EnemiesGround;
+    public GameObject AmmoPref;
 
-    public LayerMask ThornsGround;
+    private List<GameObject> AmmoPool = new List<GameObject>();
 
     private bool canHit = true;
     private Animator animator;
 
     private PlayerController pController;
 
-    private float currentThornX = float.NegativeInfinity;
+    private float currentEnemyX = float.NegativeInfinity;
     private int cummulativeScore = 0;
     private int score = 0;
 
@@ -31,19 +34,19 @@ public class Player : MonoBehaviour
     {
         if (!pController.IsGrounded)
         {
-            var hit = Physics2D.Raycast(transform.position, -Vector2.up, 20f, ThornsGround);
-            if (hit && hit.collider.gameObject.CompareTag("Thorns"))
+            var hit = Physics2D.Raycast(transform.position, -Vector2.up, 20f, EnemiesGround);
+            if (hit && hit.collider.gameObject.CompareTag("Enemy"))
             {
-                if (currentThornX == float.NegativeInfinity)
-                    currentThornX = hit.collider.transform.position.x;
+                if (currentEnemyX == float.NegativeInfinity)
+                    currentEnemyX = hit.collider.transform.position.x;
             }
             else
             {
-                if (currentThornX != float.NegativeInfinity)
+                if (currentEnemyX != float.NegativeInfinity)
                 {
                     cummulativeScore++;
                     SetScore(score + 1);
-                    currentThornX = float.NegativeInfinity;
+                    currentEnemyX = float.NegativeInfinity;
                 }
             }
         }
@@ -57,11 +60,7 @@ public class Player : MonoBehaviour
                     PlayerDefinition.MinXVelocity += .05f;
                 SetScore(score + cummulativeScore * 10);
                 UIManager.Instance.BonusScore.Show("+ " + cummulativeScore * 10);
-                //if (health < 100)
-                //{
-                //    SetHealth(health + cummulativeScore);
-                //    SoundManager.Instance.PlayEffects("Power_up");
-                //}
+
                 if (cummulativeScore == 2)
                     SoundManager.Instance.PlayEffects("Double");
                 else if (cummulativeScore == 3)
@@ -73,33 +72,43 @@ public class Player : MonoBehaviour
             }
             cummulativeScore = 0;
         }
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            var ammo = GetAmmo();
+            ammo.transform.position = transform.position;
+            ammo.GetComponent<Ammo>().Fire(transform);
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetType() == typeof(CircleCollider2D))
         {
-
-            if (collision.gameObject.CompareTag("Thorns"))
-            {
-                OnThornHit();
-            }
-            else if (collision.gameObject.CompareTag("Coin"))
+            if (collision.gameObject.CompareTag("Coin"))
             {
                 OnCoinHit(collision.gameObject);
             }
         }
+        else if (collision.GetType() == typeof(BoxCollider2D))
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                OnThornHit();
+            }
+        }
     }
+
     void OnThornHit()
     {
         if (canHit && !PlayerDefinition.Shield.IsActif)
         {
             canHit = false;
-            currentThornX = float.NegativeInfinity;
+            currentEnemyX = float.NegativeInfinity;
             cummulativeScore = 0;
             transform.position += Vector3.up * 3;
-            StartCoroutine(ResetCanHit(1));
+            StartCoroutine(ResetCanHit(2));
             animator.SetTrigger("Flicker");
-            SetHealth(health - 50);
+            SetHealth(health - 10);
             SoundManager.Instance.PlayEffects("Hit");
             if (health <= 0)
             {
@@ -130,18 +139,6 @@ public class Player : MonoBehaviour
         score = s;
         UIManager.Instance.Inventory.SetScore(score);
     }
-    public void ResetPlayer()
-    {
-        gameObject.SetActive(true);
-        SetScore(0);
-        SetHealth(100);
-        SetCoins(0);
-        canHit = true;
-        PlayerDefinition.Shield.Unequipe();
-        PlayerDefinition.Magnet.Unequipe();
-        pController.PlayerDefinition.MinXVelocity = pController.PlayerDefinition.StartMinVelocity;
-    }
-
     void OnPlayerKiled()
     {
         UIManager.Instance.TimerUI.Stop();
@@ -150,12 +147,27 @@ public class Player : MonoBehaviour
         UIManager.Instance.EndUI.Show();
         UIManager.Instance.PauseButton.Hide();
         Destroy(gameObject);
-        //gameObject.SetActive(false);
-        //Stope();
-        //GameManager.Instance.UpdateState(GameManager.GameStates.PAUSED);
-        //UIManager.Instance.Inventory.Hide();
-        //UIManager.Instance.TimerUI.Hide();
-        //UIManager.Instance.BonusScore.Hide();
+    }
+    GameObject GetAmmo()
+    {
+        foreach (var a in AmmoPool)
+        {
+            if (!a.activeSelf)
+            {
+                a.SetActive(true);
+                return a;
+            }
+        }
+        FillAmmoPool();
+        return GetAmmo();
+    }
+    void FillAmmoPool()
+    {
+        for (var i = 0; i < 10; i++)
+        {
+            AmmoPool.Add(Instantiate(AmmoPref));
+            AmmoPool[i].SetActive(false);
+        }
     }
     IEnumerator ResetCanHit(float s)
     {
@@ -163,3 +175,14 @@ public class Player : MonoBehaviour
         canHit = true;
     }
 }
+//public void ResetPlayer()
+//{
+//    gameObject.SetActive(true);
+//    SetScore(0);
+//    SetHealth(100);
+//    SetCoins(0);
+//    canHit = true;
+//    PlayerDefinition.Shield.Unequipe();
+//    PlayerDefinition.Magnet.Unequipe();
+//    pController.PlayerDefinition.MinXVelocity = pController.PlayerDefinition.StartMinVelocity;
+//}

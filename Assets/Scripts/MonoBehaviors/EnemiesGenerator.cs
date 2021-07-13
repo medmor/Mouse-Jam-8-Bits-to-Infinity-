@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class ThornsGenerator : MonoBehaviour
+public class EnemiesGenerator : MonoBehaviour
 {
-    public GameObject ThornPref;
-    private List<GameObject> ThornsPool { get; set; } = new List<GameObject>();
+    public GameObject EnemyPref;
+    private List<GameObject> EnemiesPool { get; set; } = new List<GameObject>();
 
     public void Start()
     {
@@ -11,7 +11,7 @@ public class ThornsGenerator : MonoBehaviour
         GameManager.Instance.FloorExtended.AddListener(SpawnThorns);
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
-            foreach (var t in ThornsPool)
+            foreach (var t in EnemiesPool)
                 Destroy(t);
             Destroy(gameObject);
         });
@@ -25,15 +25,15 @@ public class ThornsGenerator : MonoBehaviour
     }
     GameObject GetThorn()
     {
-        for (var i = 0; i < ThornsPool.Count; i++)
+        for (var i = 0; i < EnemiesPool.Count; i++)
         {
-            if (!ThornsPool[i].activeSelf)
+            if (!EnemiesPool[i].activeSelf)
             {
-                ThornsPool[i].SetActive(true);
-                return ThornsPool[i];
+                EnemiesPool[i].SetActive(true);
+                return EnemiesPool[i];
             }
         }
-        foreach (var thorn in ThornsPool)
+        foreach (var thorn in EnemiesPool)
         {
             var p = Camera.main.WorldToViewportPoint(thorn.transform.position);
             if (p.x <= float.Epsilon)
@@ -47,9 +47,9 @@ public class ThornsGenerator : MonoBehaviour
     {
         for (var i = 0; i < 10; i++)
         {
-            GameObject thorn = Instantiate(ThornPref);
+            GameObject thorn = Instantiate(EnemyPref);
             thorn.SetActive(false);
-            ThornsPool.Add(thorn);
+            EnemiesPool.Add(thorn);
         }
     }
 }

@@ -15,7 +15,7 @@ public class GameManager : Manager<GameManager>
     public GameObject PlayerPref;
 
     public GameObject FloorPref;
-    public ThornsGenerator ThornsGeneratorPref;
+    public EnemiesGenerator ThornsGeneratorPref;
     public CollectablesGenerator CollectablesGeneratorPref;
 
 

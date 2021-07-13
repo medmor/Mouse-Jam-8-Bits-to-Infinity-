@@ -123,36 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &314886026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314886027}
-  m_Layer: 0
-  m_Name: EquipementGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &314886027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314886026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.78482, y: 2.4475691, z: 0.031542033}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,38 +394,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: FloorPref
-      value: 
-      objectReference: {fileID: 4498191368449745111, guid: ede06251d3fa13846a8f3e8705f6a2be, type: 3}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: PlayerPref
-      value: 
-      objectReference: {fileID: 1137066299026465662, guid: 20152ef656ca02646b611d8c85c962cb, type: 3}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: Playerpref
-      value: 
-      objectReference: {fileID: 1137066299026465662, guid: 20152ef656ca02646b611d8c85c962cb, type: 3}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: ThornGenerator
-      value: 
-      objectReference: {fileID: 11400000, guid: d3d760ac9059cf94d815666a0594b91d, type: 2}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: ThornsGenerator
-      value: 
-      objectReference: {fileID: 11400000, guid: d3d760ac9059cf94d815666a0594b91d, type: 2}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: CoinsGeneratorPref
-      value: 
-      objectReference: {fileID: 2440373648345009174, guid: d19d527b7e7c250429be12844360ed57, type: 3}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: ThornsGeneratorPref
-      value: 
-      objectReference: {fileID: 1607541849433335145, guid: 0d0b3611066f66f4abcbc563424dda3a, type: 3}
-    - target: {fileID: 1184554900744525269, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
-      propertyPath: CollectablesGeneratorPref
-      value: 
-      objectReference: {fileID: 2440373648345009174, guid: d19d527b7e7c250429be12844360ed57, type: 3}
     - target: {fileID: 5592544483891115457, guid: 92aebd0c26e81044fbcfd30c7bab8130, type: 3}
       propertyPath: m_Name
       value: GameManager

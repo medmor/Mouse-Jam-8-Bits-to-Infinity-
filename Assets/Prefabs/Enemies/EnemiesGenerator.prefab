@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7208449924101144709}
   - component: {fileID: 1607541849433335145}
   m_Layer: 0
-  m_Name: ThornsGenerator
+  m_Name: EnemiesGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c207c04b8432942a47a1f4090efb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThornPref: {fileID: 551412130325018828, guid: 2003105c4998d74489c5257cfda92b57, type: 3}
+  EnemyPref: {fileID: 551412130325018828, guid: 2003105c4998d74489c5257cfda92b57, type: 3}
