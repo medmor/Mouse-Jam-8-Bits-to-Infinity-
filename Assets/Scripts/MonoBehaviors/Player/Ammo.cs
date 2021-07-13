@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    private float speed = 1f;
+    private float speed = .5f;
 
     public void Fire(Transform player)
     {
