@@ -1,27 +1,41 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public LayerMask Ground;
+    public ParticleSystem ExplosionEffect;
     private Transform player;
     private Rigidbody2D rb;
-
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    void Update()
+    void Start()
     {
-        if (Physics2D.OverlapCircle(transform.position, 1f, Ground))
+        ExplosionEffect = Instantiate(ExplosionEffect.gameObject).GetComponent<ParticleSystem>();
+    }
+    public void FollowPlayer()
+    {
+        StartCoroutine(followPlayer());
+    }
+    IEnumerator followPlayer()
+    {
+        while (gameObject.activeSelf)
         {
 
+            rb.MovePosition(Vector3.MoveTowards(transform.position, player.position, .03f));
+
+            yield return new WaitForFixedUpdate();
+
         }
-        rb.MovePosition(Vector3.MoveTowards(transform.position, player.position, .03f));
     }
-    private void OnDrawGizmos()
+
+    public void Explode()
     {
-        Gizmos.DrawSphere(transform.position, 5f);
+        ExplosionEffect.transform.position = transform.position;
+        ExplosionEffect.Play();
+        gameObject.SetActive(false);
     }
 }

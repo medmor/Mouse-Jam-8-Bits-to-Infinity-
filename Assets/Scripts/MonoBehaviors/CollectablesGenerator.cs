@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CollectablesGenerator : MonoBehaviour
 {
-    public GameObject CoinPref;
-    public List<GameObject> EquipementsPrefs = new List<GameObject>();
+    public CollectablesGeneratorDefinition Definition;
     private List<GameObject> CoinsPool = new List<GameObject>();
-
 
     public void Start()
     {
@@ -42,9 +40,9 @@ public class CollectablesGenerator : MonoBehaviour
     }
     void SpawnCoinsPool()
     {
-        for (var i = 0; i < 50; i++)
+        for (var i = 0; i < 100; i++)
         {
-            GameObject coin = Instantiate(CoinPref);
+            GameObject coin = Instantiate(Definition.CoinPref);
             coin.SetActive(false);
             CoinsPool.Add(coin);
         }
@@ -53,27 +51,29 @@ public class CollectablesGenerator : MonoBehaviour
     {
         var dir = secondPos - firstPos;
 
-        SpawnCoins(firstPos, dir);
-        SpawnRandomEquipement(firstPos, dir);
+        if (Random.value < Definition.CoinsFrequency)
+            SpawnCoins(firstPos, dir);
+        if (Random.value < Definition.EquipementFrequency)
+            SpawnRandomEquipement(firstPos, dir);
     }
     void SpawnCoins(Vector3 firstPos, Vector3 dir)
     {
-        for (int j = -1; j <= 1; j++)
+        var limits = Random.Range(1, 3);
+        for (int j = -limits; j <= limits; j++)
         {
             var coin = GetCoin();
-            coin.transform.position = firstPos + Vector3.up
+            coin.transform.position = firstPos + 5 * Vector3.up
                 + Vector3.Cross(dir.normalized, Vector3.up)
                 + .5f * j * (Vector3.right + dir.normalized);
+            StartCoroutine(coin.GetComponent<Coin>().FallToGround());
         }
     }
     void SpawnRandomEquipement(Vector3 firstPos, Vector3 dir)
     {
-        if (Random.value < .1f)
-        {
-            var equip = Instantiate(EquipementsPrefs[Random.Range(0, EquipementsPrefs.Count)]);
-            Vector3 target_position = firstPos + Random.value * dir;
-            equip.transform.position = target_position;
-            equip.transform.position += Vector3.up + Vector3.up * Random.Range(.5f, 1.5f);
-        }
+        var equip = Instantiate(Definition.EquipementsPrefs[Random.Range(0, Definition.EquipementsPrefs.Count)]);
+        Vector3 target_position = firstPos + Random.value * dir;
+        equip.transform.position = target_position;
+        equip.transform.position += Vector3.up + Vector3.up * Random.Range(.5f, 1.5f);
     }
+
 }

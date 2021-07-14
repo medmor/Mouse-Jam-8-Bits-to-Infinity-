@@ -4,24 +4,27 @@ using UnityEngine.U2D;
 public class GroundGenerator : MonoBehaviour
 {
     public SpriteShapeController FloorShapeController;
-    private Spline floor;
+    private Spline ground;
 
     void Start()
     {
-        floor = FloorShapeController.spline;
-        for (var i = 0; i < 10; i++)
-        {
-            InsertNewPoint(false);
-        }
+        ground = FloorShapeController.spline;
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
             Destroy(gameObject);
         });
+        FirstExtend();
     }
-
+    public void FirstExtend()
+    {
+        for (var i = 0; i < 10; i++)
+        {
+            InsertNewPoint(false);
+        }
+    }
     void Update()
     {
-        var p = Camera.main.WorldToViewportPoint(floor.GetPosition(floor.GetPointCount() / 2) + FloorShapeController.transform.position);
+        var p = Camera.main.WorldToViewportPoint(ground.GetPosition(ground.GetPointCount() / 2) + FloorShapeController.transform.position);
         if (p.x <= float.Epsilon)
         {
             InsertNewPoint(true);
@@ -30,18 +33,18 @@ public class GroundGenerator : MonoBehaviour
     void InsertNewPoint(bool removeFirst)
     {
         if (removeFirst)
-            floor.RemovePointAt(0);
+            ground.RemovePointAt(0);
 
-        var count = floor.GetPointCount();
-        var firstPos = floor.GetPosition(count - 1);
+        var count = ground.GetPointCount();
+        var firstPos = ground.GetPosition(count - 1);
         var secondPos = firstPos + Vector3.right * Random.Range(5, 15) + Vector3.up * Random.Range(-5, 5);
-        floor.InsertPointAt(count, secondPos);
+        ground.InsertPointAt(count, secondPos);
 
-        floor.SetTangentMode(count - 1, ShapeTangentMode.Continuous);
-        floor.SetRightTangent(count - 1, 2 * Vector3.right);
-        floor.SetLeftTangent(count - 1, 2 * -Vector3.right);
+        ground.SetTangentMode(count - 1, ShapeTangentMode.Continuous);
+        ground.SetRightTangent(count - 1, 2 * Vector3.right);
+        ground.SetLeftTangent(count - 1, 2 * -Vector3.right);
 
-        floor.SetTangentMode(count, ShapeTangentMode.Continuous);
+        ground.SetTangentMode(count, ShapeTangentMode.Continuous);
         GameManager.Instance.FloorExtended.Invoke(firstPos, secondPos);
     }
 }

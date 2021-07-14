@@ -10,7 +10,8 @@ public class SoundManager : Manager<SoundManager>
 
     void Start()
     {
-
+        MusicAudioSource.volume = .5f;
+        EffectsAudioSource.volume = 1;
     }
     public void PlayEffects(string sound)
     {

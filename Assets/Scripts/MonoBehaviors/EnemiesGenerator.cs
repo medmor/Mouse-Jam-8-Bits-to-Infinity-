@@ -3,12 +3,12 @@ using UnityEngine;
 public class EnemiesGenerator : MonoBehaviour
 {
     public GameObject EnemyPref;
-    private List<GameObject> EnemiesPool { get; set; } = new List<GameObject>();
+    private List<EnemyController> EnemiesPool { get; set; } = new List<EnemyController>();
 
     public void Start()
     {
-        SpawnThornsPool();
-        GameManager.Instance.FloorExtended.AddListener(SpawnThorns);
+        SpawnEnemiesPool();
+        GameManager.Instance.FloorExtended.AddListener(SpawnEnemy);
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
             foreach (var t in EnemiesPool)
@@ -16,40 +16,41 @@ public class EnemiesGenerator : MonoBehaviour
             Destroy(gameObject);
         });
     }
-    public void SpawnThorns(Vector3 firstP, Vector3 secondP)
+    public void SpawnEnemy(Vector3 firstP, Vector3 secondP)
     {
         var dir = secondP - firstP;
-        var thorn = GetThorn();
-        thorn.transform.position = firstP + dir * Random.value;
-        thorn.transform.position += Vector3.up + Vector3.up * Random.value;
+        var enemy = GetEnemy();
+        enemy.transform.position = firstP + dir * Random.value;
+        enemy.transform.position += 2 * Vector3.up;
+        enemy.FollowPlayer();
     }
-    GameObject GetThorn()
+    EnemyController GetEnemy()
     {
         for (var i = 0; i < EnemiesPool.Count; i++)
         {
-            if (!EnemiesPool[i].activeSelf)
+            if (!EnemiesPool[i].gameObject.activeSelf)
             {
-                EnemiesPool[i].SetActive(true);
+                EnemiesPool[i].gameObject.SetActive(true);
                 return EnemiesPool[i];
             }
         }
-        foreach (var thorn in EnemiesPool)
+        foreach (var enemy in EnemiesPool)
         {
-            var p = Camera.main.WorldToViewportPoint(thorn.transform.position);
+            var p = Camera.main.WorldToViewportPoint(enemy.transform.position);
             if (p.x <= float.Epsilon)
             {
-                thorn.SetActive(false);
+                enemy.gameObject.SetActive(false);
             }
         }
-        return GetThorn();
+        return GetEnemy();
     }
-    void SpawnThornsPool()
+    void SpawnEnemiesPool()
     {
         for (var i = 0; i < 10; i++)
         {
-            GameObject thorn = Instantiate(EnemyPref);
-            thorn.SetActive(false);
-            EnemiesPool.Add(thorn);
+            GameObject enemy = Instantiate(EnemyPref);
+            enemy.SetActive(false);
+            EnemiesPool.Add(enemy.GetComponent<EnemyController>());
         }
     }
 }

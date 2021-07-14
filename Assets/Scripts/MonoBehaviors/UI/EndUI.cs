@@ -16,6 +16,7 @@ public class EndUI : MonoBehaviour
             UIManager.Instance.Inventory.Show();
             UIManager.Instance.TimerUI.Show();
             UIManager.Instance.PauseButton.Show();
+            UIManager.Instance.Inventory.SetScore(0);
             SoundManager.Instance.TogglePauseMusic();
             Hide();
         });

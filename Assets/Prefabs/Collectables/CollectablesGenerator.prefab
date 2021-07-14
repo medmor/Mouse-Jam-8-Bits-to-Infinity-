@@ -43,7 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a141b82fae72f4aae696e3f97f2029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinPref: {fileID: 8103890043216726086, guid: 7bc70bc9b40a2484caa612e6ed401055, type: 3}
-  EquipementsPrefs:
-  - {fileID: 1158148039686556371, guid: 62c5c4d70e365914a98404d54911448e, type: 3}
-  - {fileID: 1158148039686556371, guid: 848c56a8a1764534c9fe28e78c38e133, type: 3}
+  Definition: {fileID: 11400000, guid: 441f08479a52dbc4ca832898f648fa2e, type: 2}

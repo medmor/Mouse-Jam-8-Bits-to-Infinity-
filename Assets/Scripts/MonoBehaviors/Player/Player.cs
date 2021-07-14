@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private PlayerController pController;
 
-    private float currentEnemyX = float.NegativeInfinity;
+    //private float currentEnemyX = float.NegativeInfinity;
     private int cummulativeScore = 0;
     private int score = 0;
 
@@ -32,29 +32,12 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (!pController.IsGrounded)
-        {
-            var hit = Physics2D.Raycast(transform.position, -Vector2.up, 20f, EnemiesGround);
-            if (hit && hit.collider.gameObject.CompareTag("Enemy"))
-            {
-                if (currentEnemyX == float.NegativeInfinity)
-                    currentEnemyX = hit.collider.transform.position.x;
-            }
-            else
-            {
-                if (currentEnemyX != float.NegativeInfinity)
-                {
-                    cummulativeScore++;
-                    SetScore(score + 1);
-                    currentEnemyX = float.NegativeInfinity;
-                }
-            }
-        }
-        else
+
+        if (pController.IsGrounded)
         {
             if (cummulativeScore > 1)
             {
-                if (PlayerDefinition.MinXVelocity < 15)
+                if (PlayerDefinition.MinXVelocity < 10)
                     PlayerDefinition.MinXVelocity += .1f;
                 else
                     PlayerDefinition.MinXVelocity += .05f;
@@ -93,18 +76,28 @@ public class Player : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                OnThornHit();
+                OnEnemyHit();
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SoundManager.Instance.PlayEffects("Explosion");
+            cummulativeScore++;
+            SetScore(score + 1);
+            pController.rg.velocity = Vector2.up * PlayerDefinition.JumpVelocity;
+            collision.gameObject.GetComponent<EnemyController>().Explode();
 
-    void OnThornHit()
+        }
+
+    }
+    void OnEnemyHit()
     {
         if (canHit && !PlayerDefinition.Shield.IsActif)
         {
             canHit = false;
-            currentEnemyX = float.NegativeInfinity;
-            cummulativeScore = 0;
             transform.position += Vector3.up * 3;
             StartCoroutine(ResetCanHit(2));
             animator.SetTrigger("Flicker");
@@ -185,4 +178,45 @@ public class Player : MonoBehaviour
 //    PlayerDefinition.Shield.Unequipe();
 //    PlayerDefinition.Magnet.Unequipe();
 //    pController.PlayerDefinition.MinXVelocity = pController.PlayerDefinition.StartMinVelocity;
+//}
+
+//if (!pController.IsGrounded)
+//{
+//    var hit = Physics2D.Raycast(transform.position, -Vector2.up, 20f, EnemiesGround);
+//    if (hit && hit.collider.gameObject.CompareTag("Enemy"))
+//    {
+//        if (currentEnemyX == float.NegativeInfinity)
+//            currentEnemyX = hit.collider.transform.position.x;
+//    }
+//    else
+//    {
+//        if (currentEnemyX != float.NegativeInfinity)
+//        {
+//            cummulativeScore++;
+//            SetScore(score + 1);
+//            currentEnemyX = float.NegativeInfinity;
+//        }
+//    }
+//}
+//else
+//{
+//    if (cummulativeScore > 1)
+//    {
+//        if (PlayerDefinition.MinXVelocity < 15)
+//            PlayerDefinition.MinXVelocity += .1f;
+//        else
+//            PlayerDefinition.MinXVelocity += .05f;
+//        SetScore(score + cummulativeScore * 10);
+//        UIManager.Instance.BonusScore.Show("+ " + cummulativeScore * 10);
+
+//        if (cummulativeScore == 2)
+//            SoundManager.Instance.PlayEffects("Double");
+//        else if (cummulativeScore == 3)
+//            SoundManager.Instance.PlayEffects("Triple");
+//        else if (cummulativeScore == 4)
+//            SoundManager.Instance.PlayEffects("Quad");
+//        else
+//            SoundManager.Instance.PlayEffects("Extra");
+//    }
+//    cummulativeScore = 0;
 //}

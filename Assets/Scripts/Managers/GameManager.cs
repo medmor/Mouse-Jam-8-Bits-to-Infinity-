@@ -14,8 +14,8 @@ public class GameManager : Manager<GameManager>
 
     public GameObject PlayerPref;
 
-    public GameObject FloorPref;
-    public EnemiesGenerator ThornsGeneratorPref;
+    public GameObject GroundPref;
+    public EnemiesGenerator EnemiesGeneratorPref;
     public CollectablesGenerator CollectablesGeneratorPref;
 
 
@@ -51,12 +51,12 @@ public class GameManager : Manager<GameManager>
     }
     public void ResetGame()
     {
-        Instantiate(ThornsGeneratorPref);
+        Instantiate(EnemiesGeneratorPref);
         Instantiate(CollectablesGeneratorPref);
-        var floor = Instantiate(FloorPref);
+        var Ground = Instantiate(GroundPref);
 
         var player = Instantiate(PlayerPref);
-        player.transform.position = floor.transform.position + Vector3.up;
+        player.transform.position = Ground.transform.position + Vector3.up;
 
         Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().Follow = player.transform;
         UIManager.Instance.TimerUI.ResetTimer();

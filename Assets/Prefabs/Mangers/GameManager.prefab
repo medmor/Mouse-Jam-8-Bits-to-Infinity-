@@ -47,6 +47,6 @@ MonoBehaviour:
   - {fileID: 108105680877268152, guid: 424597d47b4d5514cbf822f091f98df0, type: 3}
   - {fileID: 2235331586866673359, guid: 6ead9eb7310e53845902ab95c9db8458, type: 3}
   PlayerPref: {fileID: 1137066299026465662, guid: 20152ef656ca02646b611d8c85c962cb, type: 3}
-  FloorPref: {fileID: 4498191368449745111, guid: ede06251d3fa13846a8f3e8705f6a2be, type: 3}
-  ThornsGeneratorPref: {fileID: 1607541849433335145, guid: 0d0b3611066f66f4abcbc563424dda3a, type: 3}
+  GroundPref: {fileID: 4498191368449745111, guid: ede06251d3fa13846a8f3e8705f6a2be, type: 3}
+  EnemiesGeneratorPref: {fileID: 1607541849433335145, guid: 0d0b3611066f66f4abcbc563424dda3a, type: 3}
   CollectablesGeneratorPref: {fileID: 2440373648345009174, guid: d19d527b7e7c250429be12844360ed57, type: 3}

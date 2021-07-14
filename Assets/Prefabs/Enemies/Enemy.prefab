@@ -122,6 +122,7 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 8
+  ExplosionEffect: {fileID: 8069401224248483895, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
 --- !u!50 &4548098982499759164
 Rigidbody2D:
   serializedVersion: 4

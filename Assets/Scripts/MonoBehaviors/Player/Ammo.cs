@@ -7,6 +7,7 @@ public class Ammo : MonoBehaviour
 
     public void Fire(Transform player)
     {
+        SoundManager.Instance.PlayEffects("Fire");
         StartCoroutine(fire(player));
     }
     IEnumerator fire(Transform player)
@@ -24,7 +25,8 @@ public class Ammo : MonoBehaviour
         gameObject.SetActive(false);
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.SetActive(false);
+            SoundManager.Instance.PlayEffects("Explosion");
+            collision.gameObject.GetComponent<EnemyController>().Explode();
         }
     }
 
