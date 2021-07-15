@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
         {
             if (cummulativeScore > 1)
             {
-                if (PlayerDefinition.MinXVelocity < 10)
-                    PlayerDefinition.MinXVelocity += .1f;
+                if (pController.MinXVelocity < 10)
+                    pController.MinXVelocity += .1f;
                 else
-                    PlayerDefinition.MinXVelocity += .05f;
+                    pController.MinXVelocity += .05f;
                 SetScore(score + cummulativeScore * 10);
                 UIManager.Instance.BonusScore.Show("+ " + cummulativeScore * 10);
 
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
             cummulativeScore = 0;
         }
         if (Input.mouseScrollDelta.y > 0)
+        //if (Input.GetMouseButtonDown(2))
         {
             var ammo = GetAmmo();
             ammo.transform.position = transform.position;
@@ -74,9 +75,11 @@ public class Player : MonoBehaviour
         }
         else if (collision.GetType() == typeof(BoxCollider2D))
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy")
+                && Vector3.Dot(-transform.up,
+                collision.transform.position - transform.position) < 0)
             {
-                OnEnemyHit();
+                OnEnemyHit(collision.gameObject.GetComponent<Enemy>());
             }
         }
     }
@@ -84,18 +87,24 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            SoundManager.Instance.PlayEffects("Explosion");
             cummulativeScore++;
             SetScore(score + 1);
             pController.rg.velocity = Vector2.up * PlayerDefinition.JumpVelocity;
-            collision.gameObject.GetComponent<EnemyController>().Explode();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy.DecrementHealth(10))
+                enemy.Explode();
 
         }
 
     }
-    void OnEnemyHit()
+    void OnEnemyHit(Enemy enemy)
     {
-        if (canHit && !PlayerDefinition.Shield.IsActif)
+        if (PlayerDefinition.Shield.IsActif)
+        {
+            if (enemy.DecrementHealth(10))
+                enemy.Explode();
+        }
+        else if (canHit)
         {
             canHit = false;
             transform.position += Vector3.up * 3;

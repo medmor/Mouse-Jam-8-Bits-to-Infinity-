@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,25 +6,37 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerDefinition PlayerDefinition;
 
+    public float MinXVelocity { get; set; }
+    public float MaxXVelocity { get; set; }
+
     public LayerMask Ground;
     internal Rigidbody2D rg;
 
     Animator animator;
+    private bool spinning = false;
 
     public bool IsGrounded { get; private set; }
 
     void Start()
     {
+        MinXVelocity = PlayerDefinition.MinXVelocity;
+        MaxXVelocity = PlayerDefinition.MaxXVelocity;
         rg = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (rg.velocity.x < PlayerDefinition.MinXVelocity)
-            rg.velocity = new Vector2(PlayerDefinition.MinXVelocity, rg.velocity.y);
-        if (rg.velocity.x > PlayerDefinition.MaxXVelocity)
-            rg.velocity = new Vector2(PlayerDefinition.MaxXVelocity, rg.velocity.y);
+        if (rg.velocity.x < MinXVelocity)
+            rg.velocity = new Vector2(MinXVelocity, rg.velocity.y);
+        if (rg.velocity.x > MaxXVelocity)
+            rg.velocity = new Vector2(MaxXVelocity, rg.velocity.y);
+
+        if (spinning)
+        {
+            rg.velocity = new Vector2(MaxXVelocity * 2, rg.velocity.y);
+            StartCoroutine(ResetSpinning());
+        }
         if (Physics2D.OverlapCircle(transform.position, .6f, Ground))
         {
             IsGrounded = true;
@@ -39,6 +52,8 @@ public class PlayerController : MonoBehaviour
                 rg.rotation = -15;
                 rg.rotation += 5;
             }
+            if (Input.GetMouseButtonDown(2))
+                spinning = true;
         }
         else
         {
@@ -58,6 +73,8 @@ public class PlayerController : MonoBehaviour
         {
             Slide();
         }
+        if (rg.velocity.y > PlayerDefinition.JumpVelocity)
+            rg.velocity = new Vector2(100, PlayerDefinition.JumpVelocity);
     }
     void Jump()
     {
@@ -69,6 +86,11 @@ public class PlayerController : MonoBehaviour
         //animator.SetTrigger("Slide");
         rg.velocity = new Vector2(rg.velocity.x - 10, rg.velocity.y - 20);
         SoundManager.Instance.PlayEffects("Laser");
+    }
+    IEnumerator ResetSpinning()
+    {
+        yield return new WaitForSeconds(.1f);
+        spinning = false;
     }
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4548098982499759164}
   - component: {fileID: 7782910654457969118}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 551412130325018828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.466125, y: 1.4025615, z: -0.9855078}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7979733324259890344}
   - {fileID: 2965759270462112529}
@@ -77,15 +77,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4030233447086554269, guid: 3a1be05df87e0ef439054d8b3c8c22fb, type: 3}
+  m_Sprite: {fileID: -509115650628796296, guid: 3a1be05df87e0ef439054d8b3c8c22fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3697623729603809884
@@ -119,9 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51b9a4b088250c4e9e1be894877db66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
+  Definition: {fileID: 11400000, guid: 451591dae98e38348983c4c7a5aa734f, type: 2}
   ExplosionEffect: {fileID: 8069401224248483895, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
 --- !u!50 &4548098982499759164
 Rigidbody2D:
@@ -157,18 +155,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009034634, y: 0.004517436}
+  m_Offset: {x: -0.003770113, y: 0.004517436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 2.56, y: 2.56}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81026936, y: 0.77413106}
+  m_Size: {x: 0.77868223, y: 0.77413106}
   m_EdgeRadius: 0
 --- !u!1 &6375890922272184027
 GameObject:

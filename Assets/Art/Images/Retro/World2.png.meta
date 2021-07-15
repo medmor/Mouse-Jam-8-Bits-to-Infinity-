@@ -1,0 +1,1068 @@
+fileFormatVersion: 2
+guid: 60edf2de7624fc840b9c353d00be5db8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -884839968057355837
+    second: World2_0
+  - first:
+      213: -8512414416410916667
+    second: World2_1
+  - first:
+      213: 5261494063439766216
+    second: World2_2
+  - first:
+      213: 6088078484893774283
+    second: World2_3
+  - first:
+      213: 6471425753080958958
+    second: World2_4
+  - first:
+      213: 3704595860855719385
+    second: World2_5
+  - first:
+      213: -3130433440730637887
+    second: World2_6
+  - first:
+      213: 7666857007156620995
+    second: World2_7
+  - first:
+      213: 9119946465528798437
+    second: World2_8
+  - first:
+      213: -923270397101176408
+    second: World2_9
+  - first:
+      213: 6863159183806064302
+    second: World2_10
+  - first:
+      213: -3739435670722410544
+    second: World2_11
+  - first:
+      213: -5917856689491382714
+    second: World2_12
+  - first:
+      213: 1261957835021717456
+    second: World2_13
+  - first:
+      213: 2976380306740913721
+    second: World2_14
+  - first:
+      213: 2766306991675509471
+    second: World2_15
+  - first:
+      213: -418555126700333946
+    second: World2_16
+  - first:
+      213: -1347009236122583293
+    second: World2_17
+  - first:
+      213: -3510299419571166623
+    second: World2_18
+  - first:
+      213: 3088409120967745387
+    second: World2_19
+  - first:
+      213: 4712485640208266448
+    second: World2_20
+  - first:
+      213: 6191232544792473654
+    second: World2_21
+  - first:
+      213: -8224224502594018781
+    second: World2_22
+  - first:
+      213: -689217051009292382
+    second: World2_23
+  - first:
+      213: 6925378145449763803
+    second: World2_24
+  - first:
+      213: 2631318960099051951
+    second: World2_25
+  - first:
+      213: -5470717379982996148
+    second: World2_26
+  - first:
+      213: -1885588653688088948
+    second: World2_27
+  - first:
+      213: -2989793345670922681
+    second: World2_28
+  - first:
+      213: 12321714983424559
+    second: World2_29
+  - first:
+      213: 8136967390460612623
+    second: World2_30
+  - first:
+      213: 6866123995751521449
+    second: World2_31
+  - first:
+      213: 585779479009770627
+    second: World2_32
+  - first:
+      213: -2577483827589344105
+    second: World2_33
+  - first:
+      213: 833524282285735235
+    second: World2_34
+  - first:
+      213: -3565766554339785302
+    second: World2_35
+  - first:
+      213: 9140795035565642473
+    second: World2_36
+  - first:
+      213: -7536141836465120946
+    second: World2_37
+  - first:
+      213: -2484133074564883377
+    second: World2_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: World2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 623
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c19fd4bcba68b3f0800000000000000
+      internalID: -884839968057355837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 631
+        width: 106
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8c9e06034ddd980800000000000000
+      internalID: -8512414416410916667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_2
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 631
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2672f59f4940940800000000000000
+      internalID: 5261494063439766216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_3
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 631
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1bac040233d7450800000000000000
+      internalID: 6088078484893774283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 631
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef84b27f6f1fc950800000000000000
+      internalID: 6471425753080958958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 631
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d500b2ce4e596330800000000000000
+      internalID: 3704595860855719385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_6
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 631
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c91f341f577e84d0800000000000000
+      internalID: -3130433440730637887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_7
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 631
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cee847c3d5266a60800000000000000
+      internalID: 7666857007156620995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 553
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec5c68adfe809e70800000000000000
+      internalID: 9119946465528798437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 553
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9862d2772ef23f0800000000000000
+      internalID: -923270397101176408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_10
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 554
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea668b34ae6de3f50800000000000000
+      internalID: 6863159183806064302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_11
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 548
+        width: 44
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d78a22e11bda1cc0800000000000000
+      internalID: -3739435670722410544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 565
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e623fe1bc8fdda0800000000000000
+      internalID: -5917856689491382714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 500
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df8dfdf6ff538110800000000000000
+      internalID: 1261957835021717456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 500
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936a2c39e1a3e4920800000000000000
+      internalID: 2976380306740913721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_15
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 515
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda8f7a6d85e36620800000000000000
+      internalID: 2766306991675509471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_16
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 514
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684ab12745ef03af0800000000000000
+      internalID: -418555126700333946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_17
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 513
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f3ebb8c367e4de0800000000000000
+      internalID: -1347009236122583293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_18
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 511
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1626339b649e84fc0800000000000000
+      internalID: -3510299419571166623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_19
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 514
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fdb508bbb3cda20800000000000000
+      internalID: 3088409120967745387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 499
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d43eb1d8bc166140800000000000000
+      internalID: 4712485640208266448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_21
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 498
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630713a623dabe550800000000000000
+      internalID: 6191232544792473654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_22
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 497
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322e1d1836faddd80800000000000000
+      internalID: -8224224502594018781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 496
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7e2756eb86f66f0800000000000000
+      internalID: -689217051009292382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 440
+        width: 12
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd369c62bb2eb1060800000000000000
+      internalID: 6925378145449763803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_25
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 472
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9447327a2548420800000000000000
+      internalID: 2631318960099051951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_26
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 472
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dce8b278b1414b0800000000000000
+      internalID: -5470717379982996148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_27
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 483
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c861a681c1b05d5e0800000000000000
+      internalID: -1885588653688088948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_28
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 482
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e357feace1286d0800000000000000
+      internalID: -2989793345670922681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_29
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 481
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f225c94d886cb2000800000000000000
+      internalID: 12321714983424559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_30
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 480
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f009759eab05ce070800000000000000
+      internalID: 8136967390460612623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_31
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 472
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac1e86556f594f50800000000000000
+      internalID: 6866123995751521449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_32
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 424
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c3713255b112800800000000000000
+      internalID: 585779479009770627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_33
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 456
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794193a6d10fa3cd0800000000000000
+      internalID: -2577483827589344105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_34
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 424
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dbd452be5419b00800000000000000
+      internalID: 833524282285735235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_35
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 392
+        width: 12
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5cb98063ad38ec0800000000000000
+      internalID: -3565766554339785302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_36
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 392
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e25b83a7a0aade70800000000000000
+      internalID: 9140795035565642473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_37
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 376
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49598c8dee3a6790800000000000000
+      internalID: -7536141836465120946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World2_38
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 376
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cd2c35126968dd0800000000000000
+      internalID: -2484133074564883377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

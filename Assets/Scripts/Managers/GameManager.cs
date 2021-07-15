@@ -17,6 +17,7 @@ public class GameManager : Manager<GameManager>
     public GameObject GroundPref;
     public EnemiesGenerator EnemiesGeneratorPref;
     public CollectablesGenerator CollectablesGeneratorPref;
+    public WorldElementsGenerator WorldElementsGenerator;
 
 
 
@@ -53,6 +54,7 @@ public class GameManager : Manager<GameManager>
     {
         Instantiate(EnemiesGeneratorPref);
         Instantiate(CollectablesGeneratorPref);
+        Instantiate(WorldElementsGenerator);
         var Ground = Instantiate(GroundPref);
 
         var player = Instantiate(PlayerPref);

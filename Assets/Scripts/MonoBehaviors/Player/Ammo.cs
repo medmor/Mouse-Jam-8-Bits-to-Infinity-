@@ -25,8 +25,9 @@ public class Ammo : MonoBehaviour
         gameObject.SetActive(false);
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            SoundManager.Instance.PlayEffects("Explosion");
-            collision.gameObject.GetComponent<EnemyController>().Explode();
+            var enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy && enemy.DecrementHealth(1))
+                enemy.Explode();
         }
     }
 
