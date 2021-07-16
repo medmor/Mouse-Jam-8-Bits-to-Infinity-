@@ -43,5 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d6f82ade2dba41b1b27f315d86c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FloatingElementsPrefs:
+  StaticElementsPrefs:
   - {fileID: 8955648162933156799, guid: 939c2a3d5de3ed846ba2950567f13877, type: 3}
+  - {fileID: 9188353841675308468, guid: 84954f981ea750d4a8dafe49f70e743a, type: 3}
+  - {fileID: 9188353841675308468, guid: 45d2d58d4374b2c4daf77736b1cf16dc, type: 3}
+  - {fileID: 9188353841675308468, guid: 8f1c1e02a524a714e890a371e6c1d3c2, type: 3}
+  - {fileID: 9188353841675308468, guid: 0e1b0ef93a2e6cc4eb818f22e681c624, type: 3}
+  - {fileID: 9188353841675308468, guid: db3f8501d19f0544c822b6ab19528ca5, type: 3}
+  - {fileID: 9188353841675308468, guid: 692c97094b7d3a048b108f0292a8a803, type: 3}
+  - {fileID: 9188353841675308468, guid: 41213a30674f375408891254ac0765a3, type: 3}
+  - {fileID: 9188353841675308468, guid: d2b037e136d108346a568b62cd3d90bc, type: 3}

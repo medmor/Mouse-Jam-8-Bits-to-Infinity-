@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    LayerMask ground;
+    private void Start()
+    {
+        ground = LayerMask.GetMask("Ground");
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -24,12 +29,12 @@ public class Coin : MonoBehaviour
     }
     public IEnumerator FallToGround()
     {
-        while (!Physics2D.OverlapCircle(transform.position, .5f, LayerMask.GetMask("Ground")))
+        while (!Physics2D.OverlapCircle(transform.position, .5f, ground))
         {
             transform.Translate(Vector2.down * .1f);
             yield return new WaitForEndOfFrame();
         }
-        if (Physics2D.OverlapCircle(transform.position, .3f, LayerMask.GetMask("Ground")))
+        if (Physics2D.OverlapCircle(transform.position, .3f, ground))
         {
             gameObject.SetActive(false);
         }

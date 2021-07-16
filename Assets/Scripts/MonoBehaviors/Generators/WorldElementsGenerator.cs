@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class WorldElementsGenerator : MonoBehaviour
 {
-    public GameObject[] FloatingElementsPrefs;
+    public GameObject[] StaticElementsPrefs;
+    //public GameObject[] MovingElementsPrefs;
 
-    private List<GameObject> FloatingElementsPool = new List<GameObject>();
+    private List<WorldElementBase> ElementsPool = new List<WorldElementBase>();
+    //private List<WorldElementBase> MovingelementsPool = new List<WorldElementBase>();
 
     private void Start()
     {
@@ -15,44 +17,43 @@ public class WorldElementsGenerator : MonoBehaviour
         });
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
-            foreach (var e in FloatingElementsPool)
+            foreach (var e in ElementsPool)
                 Destroy(e);
             Destroy(gameObject);
         });
 
-        SpawnFloatingElementsPool();
-    }
-    private void Update()
-    {
-        if (Camera.main.transform.position.x - FloatingElementsPool[0].transform.position.x > 50)
-            FloatingElementsPool[0].SetActive(false);
-    }
-    void SpawnWoldElement(Vector3 firstPos, Vector3 secondPos)
-    {
-        var element = GetFloatingElement();
-        if (element)
-            element.transform.position = firstPos + Vector3.up * 4 + Random.value * Vector3.up * 3 + Random.value * (secondPos - firstPos);
+        SpawnElementsPool(StaticElementsPrefs, ElementsPool);
+        //SpawnFloatingElementsPool(MovingElementsPrefs, MovingelementsPool);
     }
 
-    GameObject GetFloatingElement()
+    void SpawnWoldElement(Vector3 firstPos, Vector3 secondPos)
     {
-        foreach (var e in FloatingElementsPool)
+        for (var i = 0; i < ElementsPool.Count; i++)
         {
-            if (!e.activeSelf)
+            var element = GetWorldElement();
+            if (element)
+                element.Activate(firstPos, secondPos);
+        }
+    }
+
+    WorldElementBase GetWorldElement()
+    {
+        foreach (var e in ElementsPool)
+        {
+            if (!e.IsActif())
             {
-                e.SetActive(true);
                 return e;
             }
         }
         return null;
     }
-    void SpawnFloatingElementsPool()
+    void SpawnElementsPool(GameObject[] elementsPrefs, List<WorldElementBase> ElementsPool)
     {
-        foreach (var element in FloatingElementsPrefs)
+        foreach (var element in elementsPrefs)
         {
-            var e = Instantiate(element);
-            e.SetActive(false);
-            FloatingElementsPool.Add(e);
+            var e = Instantiate(element).GetComponent<WorldElementBase>();
+            e.Desactivate();
+            ElementsPool.Add(e);
         }
     }
 
