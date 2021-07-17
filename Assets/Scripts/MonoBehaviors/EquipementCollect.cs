@@ -19,7 +19,7 @@ public class EquipementCollect : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             var player = collision.GetComponent<Player>();
             if (ThisEquipement == Equipement.AvailableEquipement.SHIELD)
                 player.PlayerDefinition.Shield.Equipe(player);

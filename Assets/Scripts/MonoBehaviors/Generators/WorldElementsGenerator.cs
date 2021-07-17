@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class WorldElementsGenerator : MonoBehaviour
 {
-    public GameObject[] StaticElementsPrefs;
-    //public GameObject[] MovingElementsPrefs;
+    public GameObject StaticElementPref;
+    public GameObject MovingElementPref;
+    public GameObject GroundedElementPref;
+    public Sprite[] StaticElementSprites;
+    public Sprite[] MovingElementSprites;
+    public Sprite[] GroundedElementSprites;
 
     private List<WorldElementBase> ElementsPool = new List<WorldElementBase>();
-    //private List<WorldElementBase> MovingelementsPool = new List<WorldElementBase>();
 
     private void Start()
     {
@@ -18,24 +21,28 @@ public class WorldElementsGenerator : MonoBehaviour
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
             foreach (var e in ElementsPool)
-                Destroy(e);
+                Destroy(e.gameObject);
             Destroy(gameObject);
         });
 
-        SpawnElementsPool(StaticElementsPrefs, ElementsPool);
-        //SpawnFloatingElementsPool(MovingElementsPrefs, MovingelementsPool);
+        SpawnElementsPool();
     }
 
     void SpawnWoldElement(Vector3 firstPos, Vector3 secondPos)
     {
-        for (var i = 0; i < ElementsPool.Count; i++)
+        for (var i = 0; i < 10; i++)
         {
-            var element = GetWorldElement();
+            var element = GetRandomElement();
             if (element)
                 element.Activate(firstPos, secondPos);
         }
     }
-
+    WorldElementBase GetRandomElement()
+    {
+        var e = ElementsPool[Random.Range(0, ElementsPool.Count - 1)];
+        if (!e.IsActif()) return e;
+        else return null;
+    }
     WorldElementBase GetWorldElement()
     {
         foreach (var e in ElementsPool)
@@ -47,11 +54,20 @@ public class WorldElementsGenerator : MonoBehaviour
         }
         return null;
     }
-    void SpawnElementsPool(GameObject[] elementsPrefs, List<WorldElementBase> ElementsPool)
+    void SpawnElementsPool()
     {
-        foreach (var element in elementsPrefs)
+        FillPool(StaticElementSprites, StaticElementPref);
+        FillPool(MovingElementSprites, MovingElementPref);
+        FillPool(GroundedElementSprites, GroundedElementPref);
+
+    }
+    void FillPool(Sprite[] sprites, GameObject pref)
+    {
+        foreach (var s in sprites)
         {
-            var e = Instantiate(element).GetComponent<WorldElementBase>();
+            var go = Instantiate(pref);
+            go.GetComponent<SpriteRenderer>().sprite = s;
+            var e = go.GetComponent<WorldElementBase>();
             e.Desactivate();
             ElementsPool.Add(e);
         }

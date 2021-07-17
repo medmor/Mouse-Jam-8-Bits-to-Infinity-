@@ -11,8 +11,7 @@ public class MovingElement : WorldElementBase
         xSpeed = -Random.Range(.01f, .1f);
         ySpeed = Random.Range(.01f, .1f);
         changeYTime = Random.Range(100, 1000);
-        gameObject.SetActive(true);
-        transform.position = firstPos + Vector3.up * Random.Range(-4, 4) + Random.value * (secondPos - firstPos);
+        base.Activate(firstPos, secondPos);
         StartCoroutine(Move());
     }
 

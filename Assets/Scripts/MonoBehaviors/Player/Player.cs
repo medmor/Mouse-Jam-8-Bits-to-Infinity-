@@ -148,6 +148,8 @@ public class Player : MonoBehaviour
         GameManager.Instance.CalculatScore(coins, score);
         UIManager.Instance.EndUI.Show();
         UIManager.Instance.PauseButton.Hide();
+        foreach (var a in AmmoPool)
+            Destroy(a);
         Destroy(gameObject);
     }
     GameObject GetAmmo()

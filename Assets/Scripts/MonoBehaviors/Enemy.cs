@@ -4,7 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyDefinition Definition;
-    public ParticleSystem ExplosionEffect;
+    public GameObject ExplosionEffectPref;
+
+    internal ParticleSystem ExplosionEffect;
 
     private float speed;
     private float health;
@@ -14,11 +16,11 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        ExplosionEffect = Instantiate(ExplosionEffectPref).GetComponent<ParticleSystem>();
     }
     void Start()
     {
         ResetEnemy();
-        ExplosionEffect = Instantiate(ExplosionEffect.gameObject).GetComponent<ParticleSystem>();
     }
     public void FollowPlayer()
     {

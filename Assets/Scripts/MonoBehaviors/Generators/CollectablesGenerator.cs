@@ -6,15 +6,19 @@ public class CollectablesGenerator : MonoBehaviour
 {
     public CollectablesGeneratorDefinition Definition;
     private List<GameObject> CoinsPool = new List<GameObject>();
+    private List<GameObject> EquipementPool = new List<GameObject>();
 
     public void Start()
     {
         SpawnCoinsPool();
+        SpawnEquipementPool();
         GameManager.Instance.FloorExtended.AddListener(SpawnCoinsAndCollectables);
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
             foreach (var t in CoinsPool)
                 Destroy(t);
+            foreach (var e in EquipementPool)
+                Destroy(e);
             Destroy(gameObject);
         });
     }
@@ -30,8 +34,8 @@ public class CollectablesGenerator : MonoBehaviour
         }
         foreach (var coin in CoinsPool)
         {
-            var p = Camera.main.WorldToViewportPoint(coin.transform.position);
-            if (p.x <= float.Epsilon)
+
+            if (Camera.main.transform.position.x - coin.transform.position.x > 15)
             {
                 coin.SetActive(false);
             }
@@ -70,10 +74,28 @@ public class CollectablesGenerator : MonoBehaviour
     }
     void SpawnRandomEquipement(Vector3 firstPos, Vector3 dir)
     {
-        var equip = Instantiate(Definition.EquipementsPrefs[Random.Range(0, Definition.EquipementsPrefs.Count)]);
-        Vector3 target_position = firstPos + Random.value * dir;
-        equip.transform.position = target_position;
-        equip.transform.position += Vector3.up + Vector3.up * Random.Range(.5f, 1.5f);
+        var equip = GetEquipement();
+        if (equip)
+            equip.transform.position = firstPos + Random.value * dir + 2 * Vector3.up;
     }
-
+    void SpawnEquipementPool()
+    {
+        foreach (var e in Definition.EquipementsPrefs)
+            for (var i = 0; i < 10; i++)
+            {
+                GameObject equipement = Instantiate(e);
+                equipement.SetActive(false);
+                EquipementPool.Add(equipement);
+            }
+    }
+    GameObject GetEquipement()
+    {
+        var e = EquipementPool[Random.Range(0, EquipementPool.Count)];
+        if (!e.activeSelf)
+        {
+            e.SetActive(true);
+            return e;
+        }
+        return null;
+    }
 }

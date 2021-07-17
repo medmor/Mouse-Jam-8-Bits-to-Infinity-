@@ -119,6 +119,12 @@ TextureImporter:
   - first:
       213: -2484133074564883377
     second: World2_38
+  - first:
+      213: -4032656937112138552
+    second: World2_39
+  - first:
+      213: 5752249727557145611
+    second: World2_40
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -614,7 +620,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 511
+        y: 512
         width: 25
         height: 9
       alignment: 0

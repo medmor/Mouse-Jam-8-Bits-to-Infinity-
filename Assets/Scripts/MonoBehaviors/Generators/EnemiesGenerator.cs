@@ -13,8 +13,16 @@ public class EnemiesGenerator : MonoBehaviour
         GameManager.Instance.FloorExtended.AddListener(SpawnEnemy);
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
-            foreach (var t in Enemies1Pool)
-                Destroy(t);
+            foreach (var e in Enemies1Pool)
+            {
+                Destroy(e.ExplosionEffect.gameObject);
+                Destroy(e.gameObject);
+            }
+            foreach (var e in Enemies2Pool)
+            {
+                Destroy(e.ExplosionEffect.gameObject);
+                Destroy(e.gameObject);
+            }
             Destroy(gameObject);
         });
     }
