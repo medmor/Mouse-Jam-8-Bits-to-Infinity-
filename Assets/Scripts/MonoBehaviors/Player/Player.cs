@@ -37,10 +37,6 @@ public class Player : MonoBehaviour
         {
             if (cummulativeScore > 1)
             {
-                if (pController.MinXVelocity < 10)
-                    pController.MinXVelocity += .1f;
-                else
-                    pController.MinXVelocity += .05f;
                 SetScore(score + cummulativeScore * 10);
                 UIManager.Instance.BonusScore.Show("+ " + cummulativeScore * 10);
 
@@ -56,7 +52,6 @@ public class Player : MonoBehaviour
             cummulativeScore = 0;
         }
         if (Input.mouseScrollDelta.y > 0)
-        //if (Input.GetMouseButtonDown(2))
         {
             var ammo = GetAmmo();
             ammo.transform.position = transform.position;
@@ -87,10 +82,10 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            cummulativeScore++;
-            SetScore(score + 1);
-            pController.rg.velocity = Vector2.up * PlayerDefinition.JumpVelocity;
             var enemy = collision.gameObject.GetComponent<Enemy>();
+            cummulativeScore++;
+            SetScore(score + enemy.Definition.ScoreToAdd);
+            pController.rg.velocity = Vector2.up * PlayerDefinition.JumpVelocity;
             if (enemy.DecrementHealth(10))
                 enemy.Explode();
 
@@ -110,7 +105,7 @@ public class Player : MonoBehaviour
             transform.position += Vector3.up * 3;
             StartCoroutine(ResetCanHit(2));
             animator.SetTrigger("Flicker");
-            SetHealth(health - 10);
+            SetHealth(health - enemy.Definition.Damage * 10);
             SoundManager.Instance.PlayEffects("Hit");
             if (health <= 0)
             {
@@ -145,9 +140,10 @@ public class Player : MonoBehaviour
     {
         UIManager.Instance.TimerUI.Stop();
         SoundManager.Instance.TogglePauseMusic();
-        GameManager.Instance.CalculatScore(coins, score);
-        UIManager.Instance.EndUI.Show();
+        UIManager.Instance.EndUI.Show(coins, score);
         UIManager.Instance.PauseButton.Hide();
+        foreach (var a in AmmoPool)
+            Destroy(a);
         Destroy(gameObject);
     }
     GameObject GetAmmo()

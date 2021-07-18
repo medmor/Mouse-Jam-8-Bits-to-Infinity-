@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     }
     public void SetCoin(int coin)
     {
-        Coins.text = "Coins :" + coin;
+        Coins.text = "Coins : " + coin;
     }
     public void SetHealthBar(float fill)
     {

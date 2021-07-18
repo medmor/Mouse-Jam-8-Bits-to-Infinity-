@@ -45,3 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy1Pref: {fileID: 551412130325018828, guid: 2003105c4998d74489c5257cfda92b57, type: 3}
   Enemy2Pref: {fileID: 551412130325018828, guid: 6cde27914f8042147960ea6828ca934f, type: 3}
+  Enemy3Pref: {fileID: 551412130325018828, guid: 1af8313cf18760d4295d850d8fb3b8a3, type: 3}
+  Enemy4Pref: {fileID: 551412130325018828, guid: 6ad335055d946d04a97643986d167602, type: 3}
+  Enemy5Pref: {fileID: 551412130325018828, guid: af516bd45c2c63a4093548104db8c1bf, type: 3}

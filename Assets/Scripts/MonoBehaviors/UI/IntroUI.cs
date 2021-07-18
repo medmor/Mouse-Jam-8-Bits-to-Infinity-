@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class IntroUI : MonoBehaviour
 {
     public Button PlayButton;
+    public TextMeshProUGUI BestScore;
+
     void Start()
     {
         PlayButton.onClick.AddListener(() =>
@@ -20,6 +23,7 @@ public class IntroUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        BestScore.text = "Best Score\n" + GameManager.Instance.GetBestScore();
     }
     public void Hide()
     {

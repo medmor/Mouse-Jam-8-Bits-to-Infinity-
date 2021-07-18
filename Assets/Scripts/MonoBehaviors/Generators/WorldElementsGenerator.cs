@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class WorldElementsGenerator : MonoBehaviour
 {
-    public GameObject[] FloatingElementsPrefs;
+    public GameObject StaticElementPref;
+    public GameObject MovingElementPref;
+    public GameObject GroundedElementPref;
+    public Sprite[] StaticElementSprites;
+    public Sprite[] MovingElementSprites;
+    public Sprite[] GroundedElementSprites;
 
-    private List<GameObject> FloatingElementsPool = new List<GameObject>();
+    private List<WorldElementBase> ElementsPool = new List<WorldElementBase>();
 
     private void Start()
     {
@@ -15,44 +20,56 @@ public class WorldElementsGenerator : MonoBehaviour
         });
         GameManager.Instance.PlayerKilled.AddListener(() =>
         {
-            foreach (var e in FloatingElementsPool)
-                Destroy(e);
+            foreach (var e in ElementsPool)
+                Destroy(e.gameObject);
             Destroy(gameObject);
         });
 
-        SpawnFloatingElementsPool();
-    }
-    private void Update()
-    {
-        if (Camera.main.transform.position.x - FloatingElementsPool[0].transform.position.x > 50)
-            FloatingElementsPool[0].SetActive(false);
-    }
-    void SpawnWoldElement(Vector3 firstPos, Vector3 secondPos)
-    {
-        var element = GetFloatingElement();
-        if (element)
-            element.transform.position = firstPos + Vector3.up * 4 + Random.value * Vector3.up * 3 + Random.value * (secondPos - firstPos);
+        SpawnElementsPool();
     }
 
-    GameObject GetFloatingElement()
+    void SpawnWoldElement(Vector3 firstPos, Vector3 secondPos)
     {
-        foreach (var e in FloatingElementsPool)
+        for (var i = 0; i < 10; i++)
         {
-            if (!e.activeSelf)
+            var element = GetRandomElement();
+            if (element)
+                element.Activate(firstPos, secondPos);
+        }
+    }
+    WorldElementBase GetRandomElement()
+    {
+        var e = ElementsPool[Random.Range(0, ElementsPool.Count - 1)];
+        if (!e.IsActif()) return e;
+        else return null;
+    }
+    WorldElementBase GetWorldElement()
+    {
+        foreach (var e in ElementsPool)
+        {
+            if (!e.IsActif())
             {
-                e.SetActive(true);
                 return e;
             }
         }
         return null;
     }
-    void SpawnFloatingElementsPool()
+    void SpawnElementsPool()
     {
-        foreach (var element in FloatingElementsPrefs)
+        FillPool(StaticElementSprites, StaticElementPref);
+        FillPool(MovingElementSprites, MovingElementPref);
+        FillPool(GroundedElementSprites, GroundedElementPref);
+
+    }
+    void FillPool(Sprite[] sprites, GameObject pref)
+    {
+        foreach (var s in sprites)
         {
-            var e = Instantiate(element);
-            e.SetActive(false);
-            FloatingElementsPool.Add(e);
+            var go = Instantiate(pref);
+            go.GetComponent<SpriteRenderer>().sprite = s;
+            var e = go.GetComponent<WorldElementBase>();
+            e.Desactivate();
+            ElementsPool.Add(e);
         }
     }
 

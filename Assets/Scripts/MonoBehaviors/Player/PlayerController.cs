@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         MaxXVelocity = PlayerDefinition.MaxXVelocity;
         rg = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        StartCoroutine(IncreaseSpeed());
     }
 
     void Update()
@@ -40,7 +41,9 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, .6f, Ground))
         {
             IsGrounded = true;
-            animator.SetBool("Jump", false);
+            rg.constraints = RigidbodyConstraints2D.None;
+            if (animator.GetBool("Jump"))
+                animator.SetBool("Jump", false);
             rg.velocity -= Vector2.right * .01f;
             if (rg.rotation > 20)
             {
@@ -49,17 +52,21 @@ public class PlayerController : MonoBehaviour
             }
             else if (rg.rotation < -15)
             {
-                rg.rotation = -15;
+                rg.rotation = -10;
                 rg.rotation += 5;
             }
+
             if (Input.GetMouseButtonDown(2))
+            {
+                SoundManager.Instance.PlayEffects("Laser");
                 spinning = true;
+            }
         }
         else
         {
+            rg.constraints = RigidbodyConstraints2D.FreezeRotation;
             IsGrounded = false;
             animator.SetBool("Jump", true);
-            rg.rotation = 0;
         }
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -74,7 +81,7 @@ public class PlayerController : MonoBehaviour
             Slide();
         }
         if (rg.velocity.y > PlayerDefinition.JumpVelocity)
-            rg.velocity = new Vector2(100, PlayerDefinition.JumpVelocity);
+            rg.velocity = new Vector2(rg.velocity.x, PlayerDefinition.JumpVelocity);
     }
     void Jump()
     {
@@ -89,9 +96,19 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator ResetSpinning()
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         spinning = false;
     }
-
+    IEnumerator IncreaseSpeed()
+    {
+        while (true)
+        {
+            if (MinXVelocity < 10)
+                MinXVelocity += .1f;
+            else
+                MinXVelocity += .05f;
+            yield return new WaitForSeconds(.5f);
+        }
+    }
 }
 

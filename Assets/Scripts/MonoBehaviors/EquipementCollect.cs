@@ -13,13 +13,13 @@ public class EquipementCollect : MonoBehaviour
     IEnumerator CountDown()
     {
         yield return new WaitForSeconds(20);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             var player = collision.GetComponent<Player>();
             if (ThisEquipement == Equipement.AvailableEquipement.SHIELD)
                 player.PlayerDefinition.Shield.Equipe(player);

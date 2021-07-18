@@ -7,4 +7,7 @@ public class EnemyDefinition : ScriptableObject
     public float MaxSpeedLimit;
 
     public float Health;
+    public float Damage;
+
+    public int ScoreToAdd;
 }

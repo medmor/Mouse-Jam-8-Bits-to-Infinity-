@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1eeec66982ee8438fe4832f2cabaf1, type: 3}
   m_Name: Enemy2
   m_EditorClassIdentifier: 
-  MinSpeedLimit: 0.08
-  MaxSpeedLimit: 0.1
+  MinSpeedLimit: 0.04
+  MaxSpeedLimit: 0.08
   Health: 3
+  Damage: 1
+  ScoreToAdd: 20

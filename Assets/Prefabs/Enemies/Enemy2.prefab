@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Definition: {fileID: 11400000, guid: 4c18464a052fdb14eaf57eb6dd560966, type: 2}
-  ExplosionEffect: {fileID: 8069401224248483895, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
+  ExplosionEffectPref: {fileID: 8069401224248483889, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
 --- !u!50 &4548098982499759164
 Rigidbody2D:
   serializedVersion: 4

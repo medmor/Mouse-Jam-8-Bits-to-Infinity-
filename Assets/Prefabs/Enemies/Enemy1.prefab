@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -509115650628796296, guid: 3a1be05df87e0ef439054d8b3c8c22fb, type: 3}
+  m_Sprite: {fileID: 1611976742759778427, guid: 47fe23af50f5a7e4594b75610858ba32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3697623729603809884
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Definition: {fileID: 11400000, guid: 451591dae98e38348983c4c7a5aa734f, type: 2}
-  ExplosionEffect: {fileID: 8069401224248483895, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
+  ExplosionEffectPref: {fileID: 8069401224248483889, guid: fcbada90d17de594aa746620d203ef7f, type: 3}
 --- !u!50 &4548098982499759164
 Rigidbody2D:
   serializedVersion: 4
