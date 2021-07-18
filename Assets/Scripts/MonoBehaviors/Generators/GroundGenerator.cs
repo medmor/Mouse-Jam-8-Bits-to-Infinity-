@@ -17,7 +17,7 @@ public class GroundGenerator : MonoBehaviour
     }
     public void FirstExtend()
     {
-        for (var i = 0; i < 10; i++)
+        for (var i = 0; i < 8; i++)
         {
             InsertNewPoint(false);
         }

@@ -11,8 +11,8 @@ public class IntroUI : MonoBehaviour
     {
         PlayButton.onClick.AddListener(() =>
         {
-            GameManager.Instance.ResetGame();
             Hide();
+            GameManager.Instance.ResetGame();
             GameManager.Instance.UpdateState(GameManager.GameStates.RUNNING);
             UIManager.Instance.Inventory.Show();
             UIManager.Instance.TimerUI.Show();

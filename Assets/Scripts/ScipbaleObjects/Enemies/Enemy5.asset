@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpeedLimit: 0.15
   MaxSpeedLimit: 0.2
-  Health: 20
+  Health: 9
   Damage: 5
   ScoreToAdd: 30

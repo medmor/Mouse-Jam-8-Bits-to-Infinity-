@@ -22,9 +22,10 @@ public class EndUI : MonoBehaviour
                 GameManager.Instance.ResetGame();
                 GameManager.Instance.UpdateState(GameManager.GameStates.RUNNING);
                 UIManager.Instance.Inventory.Show();
+                UIManager.Instance.Inventory.SetScore(0);
+                UIManager.Instance.Inventory.SetHealthBar(1);
                 UIManager.Instance.TimerUI.Show();
                 UIManager.Instance.PauseButton.Show();
-                UIManager.Instance.Inventory.SetScore(0);
                 SoundManager.Instance.TogglePauseMusic();
                 Hide();
             }
@@ -56,7 +57,7 @@ public class EndUI : MonoBehaviour
     IEnumerator CalculatScoreCoroutine(int coins, int score)
     {
 
-        while (coins >= 0)
+        while (coins >= 100)
         {
 
             SoundManager.Instance.PlayEffects("Coin");

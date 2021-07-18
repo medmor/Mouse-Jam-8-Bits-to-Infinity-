@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         Score.text = "Score : 0";
-        Coins.text = "Coins : 0";
+        Coins.text = ": 0";
     }
     public void Show()
     {
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     }
     public void SetCoin(int coin)
     {
-        Coins.text = "Coins : " + coin;
+        Coins.text = ": " + coin;
     }
     public void SetHealthBar(float fill)
     {

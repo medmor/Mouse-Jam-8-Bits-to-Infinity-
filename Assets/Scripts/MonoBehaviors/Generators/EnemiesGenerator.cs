@@ -66,7 +66,7 @@ public class EnemiesGenerator : MonoBehaviour
     {
         FillEnemiesPool(Enemy1Pref, 5);
         FillEnemiesPool(Enemy2Pref, 3);
-        FillEnemiesPool(Enemy3Pref, 3);
+        FillEnemiesPool(Enemy3Pref, 2);
         FillEnemiesPool(Enemy4Pref, 2);
         FillEnemiesPool(Enemy5Pref, 2);
     }

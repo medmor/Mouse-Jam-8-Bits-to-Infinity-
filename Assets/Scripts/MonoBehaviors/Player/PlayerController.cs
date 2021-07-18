@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
             rg.constraints = RigidbodyConstraints2D.FreezeRotation;
             IsGrounded = false;
             animator.SetBool("Jump", true);
+            if (Input.GetMouseButtonDown(1))
+                Slide();
         }
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -76,10 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Slide();
-        }
+
         if (rg.velocity.y > PlayerDefinition.JumpVelocity)
             rg.velocity = new Vector2(rg.velocity.x, PlayerDefinition.JumpVelocity);
     }

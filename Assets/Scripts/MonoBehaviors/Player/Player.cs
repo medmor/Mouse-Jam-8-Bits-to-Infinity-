@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private int cummulativeScore = 0;
     private int score = 0;
 
-    private int coins = 0;
+    private int coins = 100;
     private float health = 100;
     private void Start()
     {
@@ -51,11 +51,12 @@ public class Player : MonoBehaviour
             }
             cummulativeScore = 0;
         }
-        if (Input.mouseScrollDelta.y > 0)
+        if (Input.mouseScrollDelta.y > 0 && coins >= 0)
         {
             var ammo = GetAmmo();
             ammo.transform.position = transform.position;
             ammo.GetComponent<Ammo>().Fire(transform);
+            UIManager.Instance.Inventory.SetCoin(coins--);
         }
 
     }
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour
         {
             canHit = false;
             transform.position += Vector3.up * 3;
-            StartCoroutine(ResetCanHit(2));
+            StartCoroutine(ResetCanHit());
             animator.SetTrigger("Flicker");
             SetHealth(health - enemy.Definition.Damage * 10);
             SoundManager.Instance.PlayEffects("Hit");
@@ -167,9 +168,9 @@ public class Player : MonoBehaviour
             AmmoPool[i].SetActive(false);
         }
     }
-    IEnumerator ResetCanHit(float s)
+    IEnumerator ResetCanHit()
     {
-        yield return new WaitForSeconds(s);
+        yield return new WaitForSeconds(.5f);
         canHit = true;
     }
 }
