@@ -5,12 +5,12 @@ using UnityEngine;
 public class Equipement : ScriptableObject
 {
     public float BaseDuration = 2;
-    public GameObject EquipementPref;
+    //public GameObject EquipementPref;
     public bool IsActif = false;
     public AvailableEquipement EquipementType;
 
     private float Duration;
-    private GameObject equipementGameObject;
+    //private GameObject equipementGameObject;
     public void Equipe(Player player)
     {
         if (IsActif)
@@ -21,9 +21,9 @@ public class Equipement : ScriptableObject
         {
             IsActif = true;
             UIManager.Instance.Inventory.ShowEquipement(EquipementType);//To refactor
-            equipementGameObject = Instantiate(EquipementPref);
-            equipementGameObject.transform.parent = player.transform;
-            equipementGameObject.transform.localPosition = Vector3.zero;
+            //equipementGameObject = Instantiate(EquipementPref);
+            //equipementGameObject.transform.parent = player.transform;
+            //equipementGameObject.transform.localPosition = Vector3.zero;
             Duration = BaseDuration;
             player.StartCoroutine(CountDonwn());
         }
@@ -33,7 +33,7 @@ public class Equipement : ScriptableObject
         UIManager.Instance.Inventory.HideEquipement(EquipementType);//To refactor
         IsActif = false;
         Duration = BaseDuration;
-        Destroy(equipementGameObject);
+        //Destroy(equipementGameObject);
     }
     public IEnumerator CountDonwn()
     {

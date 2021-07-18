@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         MaxXVelocity = PlayerDefinition.MaxXVelocity;
         rg = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        StartCoroutine(IncreaseSpeed());
     }
 
     void Update()
@@ -56,7 +57,10 @@ public class PlayerController : MonoBehaviour
             }
 
             if (Input.GetMouseButtonDown(2))
+            {
+                SoundManager.Instance.PlayEffects("Laser");
                 spinning = true;
+            }
         }
         else
         {
@@ -92,9 +96,19 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator ResetSpinning()
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         spinning = false;
     }
-
+    IEnumerator IncreaseSpeed()
+    {
+        while (true)
+        {
+            if (MinXVelocity < 10)
+                MinXVelocity += .1f;
+            else
+                MinXVelocity += .05f;
+            yield return new WaitForSeconds(.5f);
+        }
+    }
 }
 

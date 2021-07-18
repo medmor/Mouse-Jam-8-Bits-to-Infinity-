@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayButton: {fileID: 2737294503521964946}
+  BestScore: {fileID: 2510637805295016060}
 --- !u!1 &5447274943025245233
 GameObject:
   m_ObjectHideFlags: 0

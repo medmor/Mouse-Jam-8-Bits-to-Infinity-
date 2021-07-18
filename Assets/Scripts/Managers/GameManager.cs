@@ -1,5 +1,4 @@
 using Cinemachine;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,35 +62,31 @@ public class GameManager : Manager<GameManager>
         Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().Follow = player.transform;
         UIManager.Instance.TimerUI.ResetTimer();
     }
-    public void CalculatScore(int coins, int score)
-    {
-        StartCoroutine(CalculatScoreCoroutine(coins, score));
-    }
-    IEnumerator CalculatScoreCoroutine(int coins, int score)
-    {
-        while (coins >= 0)
-        {
 
-            SoundManager.Instance.PlayEffects("Coin");
-            UIManager.Instance.Inventory.SetCoin(coins--);
-            UIManager.Instance.Inventory.SetScore(score += 10);
-            UIManager.Instance.EndUI.SetScoreText(score);
-            yield return new WaitForSeconds(.02f);
-        }
-        while (UIManager.Instance.TimerUI.GetTime() != "00:00")
+    #region Save
+    private string BestScoreString = "BestScore";
+    public void SetBestScore(int score)
+    {
+        if (score > GetBestScore())
         {
-            SoundManager.Instance.PlayEffects("Coin");
-            UIManager.Instance.TimerUI.SetTime(-1);
-            UIManager.Instance.Inventory.SetScore(score += 10);
-            UIManager.Instance.EndUI.SetScoreText(score);
-            yield return new WaitForSeconds(.02f);
+            PlayerPrefs.SetInt(BestScoreString, score);
+            PlayerPrefs.Save();
         }
     }
+    public int GetBestScore()
+    {
+        if (PlayerPrefs.HasKey(BestScoreString))
+            return PlayerPrefs.GetInt("BestScore");
+        return 0;
+    }
+    #endregion
     public enum GameStates
     {
         RUNNING,
         PAUSED
     }
+
+
 }
 [System.Serializable] public class VoidEvent : UnityEvent { }
 [System.Serializable] public class Vector3Event : UnityEvent<Vector3, Vector3> { }

@@ -13,7 +13,7 @@ public class EquipementCollect : MonoBehaviour
     IEnumerator CountDown()
     {
         yield return new WaitForSeconds(20);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
