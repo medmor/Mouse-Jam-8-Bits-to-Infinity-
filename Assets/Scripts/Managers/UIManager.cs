@@ -7,4 +7,5 @@ public class UIManager : Manager<UIManager>
     public BonusScore BonusScore;
     public PauseButton PauseButton;
     public PauseMenu PauseMenu;
+    public FireButton FireButton;
 }

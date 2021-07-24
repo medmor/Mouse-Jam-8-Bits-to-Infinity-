@@ -4,8 +4,12 @@ using UnityEngine.Events;
 
 public class GameManager : Manager<GameManager>
 {
+    #region Global Game Events
     internal VoidEvent PlayerKilled { get; set; } = new VoidEvent();
     internal Vector3Event FloorExtended { get; set; } = new Vector3Event();
+    internal VoidEvent MobileFireAmmo { get; set; }
+    internal SwipEvent MobileSwipEvent { get; set; }
+    #endregion
 
     internal GameStates CurrentState;
 
@@ -25,6 +29,11 @@ public class GameManager : Manager<GameManager>
     {
         InitSystemPrefabs();
         UIManager.Instance.IntroUI.Show();
+        if (Platform.IsMobileBrowser())
+        {
+            MobileFireAmmo = new VoidEvent();
+            MobileSwipEvent = new SwipEvent();
+        }
     }
     void InitSystemPrefabs()
     {
@@ -61,6 +70,8 @@ public class GameManager : Manager<GameManager>
 
         Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().Follow = player.transform;
         UIManager.Instance.TimerUI.ResetTimer();
+        if (Platform.IsMobileBrowser())
+            UIManager.Instance.FireButton.Show();
     }
 
     #region Save
@@ -90,3 +101,4 @@ public class GameManager : Manager<GameManager>
 }
 [System.Serializable] public class VoidEvent : UnityEvent { }
 [System.Serializable] public class Vector3Event : UnityEvent<Vector3, Vector3> { }
+[System.Serializable] public class SwipEvent : UnityEvent<SwipeDirection> { }

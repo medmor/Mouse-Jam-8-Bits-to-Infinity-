@@ -15,5 +15,5 @@ MonoBehaviour:
   MinSpeedLimit: 0.06
   MaxSpeedLimit: 0.12
   Health: 5
-  Damage: 2
+  Damage: 3
   ScoreToAdd: 20

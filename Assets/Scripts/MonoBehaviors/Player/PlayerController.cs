@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
         rg = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         StartCoroutine(IncreaseSpeed());
+
+        GameManager.Instance.MobileSwipEvent?.AddListener(HandleMobileSwip);
     }
 
     void Update()
@@ -36,7 +38,6 @@ public class PlayerController : MonoBehaviour
         if (spinning)
         {
             rg.velocity = new Vector2(MaxXVelocity * 2, rg.velocity.y);
-            StartCoroutine(ResetSpinning());
         }
         if (Physics2D.OverlapCircle(transform.position, .6f, Ground))
         {
@@ -56,11 +57,6 @@ public class PlayerController : MonoBehaviour
                 rg.rotation += 5;
             }
 
-            if (Input.GetMouseButtonDown(2))
-            {
-                SoundManager.Instance.PlayEffects("Laser");
-                spinning = true;
-            }
         }
         else
         {
@@ -78,7 +74,10 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-
+        if (Input.GetMouseButtonDown(2))
+        {
+            Spin();
+        }
         if (rg.velocity.y > PlayerDefinition.JumpVelocity)
             rg.velocity = new Vector2(rg.velocity.x, PlayerDefinition.JumpVelocity);
     }
@@ -92,6 +91,15 @@ public class PlayerController : MonoBehaviour
         //animator.SetTrigger("Slide");
         rg.velocity = new Vector2(rg.velocity.x - 10, rg.velocity.y - 20);
         SoundManager.Instance.PlayEffects("Laser");
+    }
+    void Spin()
+    {
+        if (!spinning && IsGrounded)
+        {
+            SoundManager.Instance.PlayEffects("Laser");
+            spinning = true;
+            StartCoroutine(ResetSpinning());
+        }
     }
     IEnumerator ResetSpinning()
     {
@@ -109,5 +117,21 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(.5f);
         }
     }
+    private void HandleMobileSwip(SwipeDirection direction)
+    {
+        switch (direction)
+        {
+            case SwipeDirection.Up:
+                Jump();
+                break;
+            case SwipeDirection.Down:
+                Slide();
+                break;
+            case SwipeDirection.Left:
+                break;
+            case SwipeDirection.Right:
+                Spin();
+                break;
+        }
+    }
 }
-

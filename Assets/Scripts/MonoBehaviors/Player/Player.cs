@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private int coins = 100;
     private float health = 100;
+    private bool UIFire = false;
     private void Start()
     {
         pController = GetComponent<PlayerController>();
@@ -29,6 +30,12 @@ public class Player : MonoBehaviour
 
         PlayerDefinition.Shield.Unequipe();
         PlayerDefinition.Magnet.Unequipe();
+
+        GameManager.Instance.MobileFireAmmo?.AddListener(() =>
+        {
+            UIFire = !UIFire;
+            StartCoroutine(UIFireCoroutine());
+        });
     }
     private void Update()
     {
@@ -58,6 +65,7 @@ public class Player : MonoBehaviour
             ammo.GetComponent<Ammo>().Fire(transform);
             UIManager.Instance.Inventory.SetCoin(coins--);
         }
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -142,6 +150,7 @@ public class Player : MonoBehaviour
         UIManager.Instance.TimerUI.Stop();
         SoundManager.Instance.TogglePauseMusic();
         UIManager.Instance.EndUI.Show(coins, score);
+        UIManager.Instance.FireButton?.Hide();
         UIManager.Instance.PauseButton.Hide();
         foreach (var a in AmmoPool)
             Destroy(a);
@@ -172,6 +181,18 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         canHit = true;
+    }
+
+    IEnumerator UIFireCoroutine()
+    {
+        while (UIFire && coins >= 0)
+        {
+            var ammo = GetAmmo();
+            ammo.transform.position = transform.position;
+            ammo.GetComponent<Ammo>().Fire(transform);
+            UIManager.Instance.Inventory.SetCoin(coins--);
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }
 //public void ResetPlayer()
